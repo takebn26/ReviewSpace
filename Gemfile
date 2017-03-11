@@ -10,9 +10,11 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.0'
 
-
 # テンプレートエンジン
 gem 'haml-rails'
+
+# ユーザー管理
+gem 'devise'
 
 # view関連
 gem 'font-awesome-rails'
