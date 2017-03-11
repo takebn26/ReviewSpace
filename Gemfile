@@ -14,8 +14,11 @@ gem 'puma', '~> 3.0'
 # テンプレートエンジン
 gem 'haml-rails'
 
-# js関連
+# view関連
+gem 'font-awesome-rails'
 gem 'sass-rails', '~> 5.0'
+
+# js関連
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
