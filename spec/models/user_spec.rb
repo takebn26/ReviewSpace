@@ -45,7 +45,7 @@ describe User do
   end
 
   it 'is invalid password for lower characters' do
-    user = build(:user, password: 'aaaaa', password_confirmation: 'aaaaa')
+    user = build(:user, password: 'aaaaaaa', password_confirmation: 'aaaaaaa')
     user.valid?
     expect(user.errors.messages[:password]).to include('は8文字以上で入力してください')
   end
