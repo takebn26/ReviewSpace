@@ -3,13 +3,12 @@
   .chat-main__header
     .chat-main__header--group.clearfix
       .chat-main__header--group-name
-        = @group.name
+        武南高校
       .chat-main__header--group-edit-btn
         edit
     .chat-main__header-members
       MEMBER:
-      %i
-        = @group.users.pluck(:name).join(' ')
+      %i 隼人
   .chat-main__body
     .chat-main__body--messages-list
       .chat-main__message.clearfix
