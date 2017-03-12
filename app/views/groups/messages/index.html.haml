@@ -3,12 +3,13 @@
   .chat-main__header
     .chat-main__header--group.clearfix
       .chat-main__header--group-name
-        武南高校
-      .chat-main__header--group-edit-btn
+        = @group.name
+      = link_to edit_group_path(@group), class: 'chat-main__header--group-edit-btn' do
         edit
     .chat-main__header-members
       MEMBER:
-      %i 隼人
+      %i
+        = @group.users.pluck(:name).join(' ')
   .chat-main__body
     .chat-main__body--messages-list
       .chat-main__message.clearfix

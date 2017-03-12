@@ -9,18 +9,4 @@
         %i.fa.fa-cog
   .chat-side__groups
     .chat-side__groups-list
-      .chat-side__group
-        .chat-side__group-name
-          武南高校
-        .chat-side__group-message
-          サッカー
-      .chat-side__group
-        .chat-side__group-name
-          西武台高校
-        .chat-side__group-message
-          サッカー
-      .chat-side__group
-        .chat-side__group-name
-          正智深谷高校
-        .chat-side__group-message
-          サッカー
+      = render partial: 'groups/group', collection: @groups
