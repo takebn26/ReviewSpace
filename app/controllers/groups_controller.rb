@@ -2,12 +2,17 @@ class GroupsController < ApplicationController
 
   before_action :set_group, only: [:edit, :update]
 
+  def index
+    @groups = current_user.groups
+  end
+
   def new
     @group = Group.new
+    @users = User.where.not(id: current_user)
   end
 
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.new(group_params)
 
     if @group.save
       redirect_to root_path, notice: 'グループ作成成功'
@@ -32,7 +37,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit(:name)
+    params.require(:group).permit(:name, user_ids: [])
   end
 
   def set_group
