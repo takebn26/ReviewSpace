@@ -10,6 +10,7 @@ class Groups::MessagesController < ApplicationController
     @message = current_user.messages.new(message_params)
 
     if @message.save
+      flash.now[:notice] = 'メッセージ送信成功'
       respond_to do |format|
         format.html {redirect_to group_messages_path(@group), notice: 'メッセージ送信成功'}
         format.json

@@ -8,8 +8,13 @@ $(function(){
                 </div>`
 
     $('.chat-main__body--messages-list').append(html);
-  };
+  }
 
+  function insertNotification(){
+    var $html = $(`<div class="notice">${flash}</div>`);
+    $('.notification').append($html);
+    $html.delay(3000).fadeOut('slow');
+  }
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -28,10 +33,11 @@ $(function(){
     })
     .done(function(data){
       insertMessage(data);
+      insertNotification(data.notice);
       this.reset();
     })
     .fail(function(){
-      console.log('ddd');
+      alert('メッセージ送信失敗');
     });
   });
 });
