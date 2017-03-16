@@ -12,55 +12,7 @@
         = @group.users.pluck(:name).join(' ')
   .chat-main__body
     .chat-main__body--messages-list
-      .chat-main__message.clearfix
-        .chat-main__message-name
-          隼人
-        .chat-main__message-time
-          2016/11/03 08:32:37
-        .chat-main__message-body
-          えげつねえな
-      .chat-main__message.clearfix
-        .chat-main__message-name
-          隼人
-        .chat-main__message-time
-          2016/11/03 08:32:37
-        .chat-main__message-body
-          えげつねえな
-      .chat-main__message.clearfix
-        .chat-main__message-name
-          隼人
-        .chat-main__message-time
-          2016/11/03 08:32:37
-        .chat-main__message-body
-          えげつねえな
-      .chat-main__message.clearfix
-        .chat-main__message-name
-          隼人
-        .chat-main__message-time
-          2016/11/03 08:32:37
-        .chat-main__message-body
-          えげつねえな
-      .chat-main__message.clearfix
-        .chat-main__message-name
-          隼人
-        .chat-main__message-time
-          2016/11/03 08:32:37
-        .chat-main__message-body
-          えげつねえな
-      .chat-main__message.clearfix
-        .chat-main__message-name
-          隼人
-        .chat-main__message-time
-          2016/11/03 08:32:37
-        .chat-main__message-body
-          えげつねえな
-      .chat-main__message.clearfix
-        .chat-main__message-name
-          隼人
-        .chat-main__message-time
-          2016/11/03 08:32:37
-        .chat-main__message-body
-          えげつねえな
+      = render @messages
   .chat-main__footer
     %form.chat-main__footer-form
       .chat-main__footer-body

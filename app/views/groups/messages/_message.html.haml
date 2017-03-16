@@ -1,0 +1,7 @@
+.chat-main__message.clearfix
+  .chat-main__message-name
+    = message.user.name
+  .chat-main__message-time
+    = published_time_for_massage(message)
+  .chat-main__message-body
+    = message.body
