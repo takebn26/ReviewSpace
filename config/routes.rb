@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'groups#index'
   resources :groups, except: [:index, :show, :destroy] do
     scope module: :groups do
-      resources :messages, only: [:index]
+      resources :messages, only: [:index, :create]
     end
   end
 end
