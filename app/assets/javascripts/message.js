@@ -16,6 +16,13 @@ $(function(){
     $html.delay(3000).fadeOut('slow');
   }
 
+  function scrollToBottom() {
+    var pos = $('.chat-main__body--messages-list').height();
+    $('.chat-main__body').animate({
+      scrollTop: pos
+    }, 'slow', 'swing');
+  }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
 
@@ -34,6 +41,7 @@ $(function(){
     .done(function(data){
       insertMessage(data);
       insertNotification(data.notice);
+      scrollToBottom();
       this.reset();
     })
     .fail(function(){
