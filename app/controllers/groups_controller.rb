@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
 
   before_action :set_group, only: [:edit, :update]
+  before_action :set_except_current_users, except: [:index, :show, :destroy]
 
   def index
     @groups = current_user.groups
@@ -8,7 +9,6 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @users = User.where.not(id: current_user)
   end
 
   def create
@@ -42,5 +42,9 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+  end
+
+  def set_except_current_users
+    @users = User.where.not(id: current_user)
   end
 end
