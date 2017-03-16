@@ -2,9 +2,9 @@ $(function(){
 
   function insertMessage(message){
     var html = `<div class='chat-main__message clearfix'>
-                  <div class='chat-main__message-name'>${ message.name }</div>
-                  <div class='chat-main__message-time'>${ message.time }</div>
-                  <div class='chat-main__message-body'>${ message.body }</div>
+                  <div class='chat-main__message-name'>${message.name}</div>
+                  <div class='chat-main__message-time'>${message.time}</div>
+                  <div class='chat-main__message-body'>${message.body}</div>
                 </div>`
 
     $('.chat-main__body--messages-list').append(html);
