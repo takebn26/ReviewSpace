@@ -10,7 +10,7 @@ $(function(){
     $('.chat-main__body--messages-list').append(html);
   }
 
-  function insertNotification(){
+  function insertNotification(flash){
     var $html = $(`<div class="notice">${flash}</div>`);
     $('.notification').append($html);
     $html.delay(3000).fadeOut('slow');
