@@ -47,5 +47,6 @@ $(function(){
     .fail(function(){
       alert('メッセージ送信失敗');
     });
+    return false;
   });
 });
