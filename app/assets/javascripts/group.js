@@ -4,7 +4,7 @@ $(function() {
 
   function appendUser(user){
     var html = `<li class='chat-group-user clearfix'>
-                  <div class='chat-group-user__name'>${ user.name }</div>
+                  <div class='chat-group-user__name'>${user.name}</div>
                   <div class='chat-group-user__btn chat-group-user__btn--add'>追加</div>
                 </li>`;
 
