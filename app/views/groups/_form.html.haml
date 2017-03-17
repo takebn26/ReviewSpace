@@ -12,10 +12,11 @@
         = f.label 'チャットメンバーを追加', class: 'chat-group-form__label'
       .chat-group-form__field--right
         .chat-group-form__search.clearfix
-        - if @users.blank?
-          追加するユーザーがいません
-        - else
-          = f.collection_check_boxes :user_ids, @users, :id, :name
+          = f.text_field :user_ids, value: '', placeholder: '追加したいユーザー名を入力してください', id: 'user-search-field', class: 'chat-group-form__input'
+        / - if @users.blank?
+        /   追加するユーザーがいません
+        / - else
+        /   = f.collection_check_boxes :user_ids, @users, :id, :name
         #user-search-result
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
@@ -26,6 +27,7 @@
             = f.hidden_field :user_ids, name: 'group[user_ids][]', value: current_user.id
             %p.chat-group-user__name
               = current_user.name
+          = render partial: 'users/member', collection: @members, locals: { f: f }
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
