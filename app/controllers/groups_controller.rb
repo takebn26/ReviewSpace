@@ -23,6 +23,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @members = @group.users.not_user(current_user)
   end
 
   def update
@@ -45,6 +46,6 @@ class GroupsController < ApplicationController
   end
 
   def set_except_current_users
-    @users = User.where.not(id: current_user)
+    @users = User.not_user(current_user)
   end
 end

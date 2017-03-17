@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+  scope :not_user, -> (user){where.not(id: user)}
+  scope :incremental_search, -> (keyword){where('name like ?', "#{keyword}%")}
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
