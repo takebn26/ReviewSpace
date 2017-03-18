@@ -20,3 +20,5 @@
 *.gif
 *.jpeg
 *.jpg
+
+/.env
