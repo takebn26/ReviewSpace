@@ -8,7 +8,7 @@ $(function(){
   function insertMessage(message){
     var insertImage = message.image ? `<img class="chat-main__message-body-image" src="${message.image}">` : '';
 
-    var html = `<div class='chat-main__message clearfix'>
+    var html = `<div class='chat-main__message clearfix' data-id=${message.id}>
                   <div class='chat-main__message-name'>${message.name}</div>
                   <div class='chat-main__message-time'>${message.time}</div>
                   <div class='chat-main__message-body'>${message.body} ${insertImage}</div>
