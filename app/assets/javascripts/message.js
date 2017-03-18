@@ -31,7 +31,6 @@ $(function(){
   }
 
   function fetchDiff() {
-    console.log($('.chat-main__message').last().data('id'))
     lastId = $('.chat-main__message').last().data('id') || 0;
     $.ajax({
       url: './messages',
