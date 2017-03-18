@@ -25,6 +25,16 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
+# 画像編集
+gem 'carrierwave'
+gem 'rmagick'
+
+# ストレージ
+gem 'fog'
+
+# 環境変数管理
+gem 'dotenv-rails'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-rails'
