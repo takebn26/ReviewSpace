@@ -1,10 +1,11 @@
 $(function(){
 
   function insertMessage(message){
+    var insertImage = message.image ? `<img class="chat-main__message-body-image" src="${message.image}">` : '';
     var html = `<div class='chat-main__message clearfix'>
                   <div class='chat-main__message-name'>${message.name}</div>
                   <div class='chat-main__message-time'>${message.time}</div>
-                  <div class='chat-main__message-body'>${message.body}</div>
+                  <div class='chat-main__message-body'>${message.body} ${insertImage}</div>
                 </div>`
 
     $('.chat-main__body--messages-list').append(html);
@@ -23,20 +24,24 @@ $(function(){
     }, 'slow', 'swing');
   }
 
+  $('#message_image').on('change', function(){
+    $('#new_message').submit();
+  });
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
 
     var input = $('#message_body').val();
+    var messageData = new FormData($(this).get(0));
 
     $.ajax({
       url: './messages',
       type: 'post',
       dataType: 'json',
-      data: {
-        message: {
-         body: input }
-      },
-      context: this
+      data: messageData,
+      context: this,
+      processData: false,
+      contentType: false
     })
     .done(function(data){
       insertMessage(data);
