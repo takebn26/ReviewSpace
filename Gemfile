@@ -25,6 +25,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
+# 画像編集
+gem 'carrierwave'
+gem 'rmagick'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-rails'
