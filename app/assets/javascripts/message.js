@@ -1,8 +1,14 @@
 $(function(){
+  var currentPath = window.location
+                          .pathname
+                          .split('/')
+                          .pop();
+
 
   function insertMessage(message){
     var insertImage = message.image ? `<img class="chat-main__message-body-image" src="${message.image}">` : '';
-    var html = `<div class='chat-main__message clearfix'>
+
+    var html = `<div class='chat-main__message clearfix' data-id=${message.id}>
                   <div class='chat-main__message-name'>${message.name}</div>
                   <div class='chat-main__message-time'>${message.time}</div>
                   <div class='chat-main__message-body'>${message.body} ${insertImage}</div>
@@ -23,6 +29,31 @@ $(function(){
       scrollTop: pos
     }, 'slow', 'swing');
   }
+
+  function fetchDiff() {
+    lastId = $('.chat-main__message').last().data('id') || 0;
+    $.ajax({
+      url: './messages',
+      method: 'GET',
+      data: {
+        last_id: lastId,
+      },
+      dataType: 'json'
+    }).done(function(data) {
+      if (data.length != 0) {
+        $.each(data.messages, function(i, message) {
+          insertMessage(message);
+        });
+      }
+    });
+  }
+
+  function reloadMessage() {
+    if (currentPath == 'messages') {
+      setInterval(fetchDiff, 5000);
+    }
+  }
+  reloadMessage();
 
   $('#message_image').on('change', function(){
     $('#new_message').submit();
