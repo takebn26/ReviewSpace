@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-gem 'mysql2', '>= 0.3.18', '< 0.5'
+gem 'mysql2', '0.3.18'
 gem 'puma', '~> 3.0'
 
 # テンプレートエンジン
@@ -34,6 +34,11 @@ gem 'fog'
 
 # 環境変数管理
 gem 'dotenv-rails'
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
 
 group :development, :test do
   gem 'byebug', platform: :mri
