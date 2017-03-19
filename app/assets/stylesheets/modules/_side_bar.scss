@@ -1,7 +1,6 @@
 .chat-side {
   height: 100vh;
   width: 300px;
-  border: $side-border;
   float: left;
 
   &__user {
@@ -9,7 +8,6 @@
     width: 100%;
     background-color: $darker;
     position: relative;
-    border: $side-border;
 
     &-content {
       height: 50px;
@@ -47,7 +45,6 @@
     height: 85%;
     width: 100%;
     background-color: $base;
-    border: $side-border;
 
     &-list {
       height: 100%;

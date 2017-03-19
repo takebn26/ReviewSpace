@@ -5,7 +5,7 @@
 
   &__header {
     height: 15%;
-    border: $side-border;
+    border: 1px solid #eee;
 
     &--group {
       margin: 0 40px;
@@ -18,7 +18,7 @@
       }
 
       &-edit-btn {
-        color: #FFCAAD;
+        color: #38AEF0;
         font-size: 15px;
         padding: 12.5px 20px;
         margin: 28px 20px 0;
@@ -108,7 +108,7 @@
       width: 100px;
       height: 50px;
       text-align: center;
-      background-color: #FFCAAD;
+      background-color: #38AEF0;
       margin: 20px 0;
       position: absolute;
       top: 0; right: 0;

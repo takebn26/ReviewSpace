@@ -15,6 +15,18 @@ html, body {
   }
 }
 
-a:visited {
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.fa {
   color: #fff;
+}
+
+a:visited {
+  color: inherit;
 }
