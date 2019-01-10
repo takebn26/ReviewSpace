@@ -1,7 +1,7 @@
 .chat-group-form
   %h1
-    = group_form_title
-  = form_for @group, class: 'new_chat_group', id: 'new_chat_group' do |f|
+    = group.form_title
+  = form_for group, class: 'new_chat_group', id: 'new_chat_group' do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label :name, class: 'chat-group-form__label'
@@ -27,7 +27,7 @@
             = f.hidden_field :user_ids, name: 'group[user_ids][]', value: current_user.id
             %p.chat-group-user__name
               = current_user.name
-          = render partial: 'users/member', collection: @members, locals: { f: f }
+          = render partial: 'users/member', collection: members, locals: { f: f }
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right

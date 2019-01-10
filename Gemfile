@@ -35,6 +35,9 @@ gem 'fog'
 # 環境変数管理
 gem 'dotenv-rails'
 
+# view_model層
+gem 'active_decorator'
+
 group :production do
   gem 'rails_12factor'
   gem 'pg'

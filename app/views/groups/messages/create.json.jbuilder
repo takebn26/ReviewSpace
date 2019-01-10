@@ -1,6 +1,6 @@
 json.id   @message.id
-json.name @message.user.name
+json.name @message.user_name
 json.body @message.body
-json.time published_time_for_message(@message)
+json.time @message.published_time
 json.image @message.image.url
 json.notice flash.now[:notice]

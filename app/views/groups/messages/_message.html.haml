@@ -1,8 +1,8 @@
 .chat-main__message.clearfix{data: { id: message.id }}
   .chat-main__message-name
-    = message.user.name
+    = message.user_name
   .chat-main__message-time
-    = published_time_for_message(message)
+    = message.published_time
   .chat-main__message-body
     = message.body
     = image_tag message.image, class: 'chat-main__message-body-image'
