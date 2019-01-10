@@ -1,4 +1,5 @@
 class Message < ApplicationRecord
+  delegate :name, to: :user, prefix: true
 
   belongs_to :group
   belongs_to :user
