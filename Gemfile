@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-gem 'mysql2', '0.3.18'
+gem 'mysql2', '0.5.2'
 gem 'puma', '~> 3.0'
 
 # テンプレートエンジン
@@ -48,7 +48,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'faker'
-  gem 'factory_girl_rails'
+  gem 'factory_bot'
 end
 
 group :development do
