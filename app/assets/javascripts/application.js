@@ -12,4 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= stub auto_reload
 //= require_tree .
