@@ -1,6 +1,6 @@
 class Groups::MessagesController < ApplicationController
 
-  before_action :set_group, :set_messages, only: [:index, :create]
+  before_action :set_group, :set_messages, only: %i[index create]
 
   def index
     @message = Message.new

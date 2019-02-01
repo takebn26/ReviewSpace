@@ -23,8 +23,8 @@ $(function() {
   }
 
   $('#user-search-result').on('click', '.chat-group-user__btn--add', function(){
-    var id = $(this).data('user-id');
-    var name = $(this).data('user-name');
+    let id = $(this).data('user-id');
+    let name = $(this).data('user-name');
     appendMember(id, name);
     $(this).parent().remove();
   });
@@ -33,10 +33,14 @@ $(function() {
     $(this).parent().remove();
   });
 
-  $('#user-search-field').on('keyup', function() {
-
+  $('#user-search-field').on('keyup', function(e) {
     $('#user-search-result').empty();
-    var input = $(this).val();
+
+    let input = $(this).val();
+
+    if (input.length === 0) {
+      return false;
+    }
 
     if (input !== preInput) {
       $.ajax({
@@ -46,13 +50,14 @@ $(function() {
         dataType: 'json',
       })
       .done(function (data) {
-        $.each (data.users, function (i, user) {
+        $.each (data.users, function (_, user) {
           appendUser(user);
         });
       })
       .fail( function() {
         alert('やり直してください');
       });
+
       preInput = input;
     }
   });

@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
-  before_action :set_group, only: [:edit, :update]
-  before_action :set_except_current_users, except: [:index, :show, :destroy]
+  before_action :set_group, only: %i[edit update]
+  before_action :set_except_current_users, except: %i[index show destroy]
 
   def index
     @groups = current_user.groups
