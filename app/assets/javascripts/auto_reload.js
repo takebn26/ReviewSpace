@@ -27,7 +27,7 @@ $(function() {
       dataType: 'json'
     }).done(function(data) {
       if (data.length !== 0) {
-        $.each(data.messages, function(_, message) {
+        $.each(data, function(_, message) {
           insertMessage(message);
         });
       }
