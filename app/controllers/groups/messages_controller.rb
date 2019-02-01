@@ -3,13 +3,13 @@ class Groups::MessagesController < ApplicationController
   before_action :set_group, :set_messages, only: [:index, :create]
 
   def index
-    @message  = Message.new
+    @message = Message.new
 
     respond_to do |format|
       format.html
-      format.json{
-        @messages = @group.messages.where('id > ?', params[:last_id])
-      }
+      format.json do
+        @messages = @group.messages.where('id > ?', params[:last_id]).includes(:user)
+      end
     end
   end
 
@@ -17,14 +17,13 @@ class Groups::MessagesController < ApplicationController
     @message = current_user.messages.new(message_params)
 
     if @message.save
-      flash.now[:notice] = 'メッセージ送信成功'
       respond_to do |format|
-        format.html {redirect_to group_messages_path(@group), notice: 'メッセージ送信成功'}
-        format.json
+        format.json { render status: :created }
       end
     else
-      flash.now[:alert] = 'メッセージ送信失敗'
-      render :index
+      respond_to do |format|
+        format.json { render status: :internal_server_error }
+      end
     end
   end
 
@@ -33,8 +32,8 @@ class Groups::MessagesController < ApplicationController
   end
 
   def set_group
-    @group  = current_user.groups.find(params[:group_id])
     @groups = current_user.groups
+    @group  = @groups.find(params[:group_id])
   end
 
   def set_messages

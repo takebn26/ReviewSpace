@@ -1,5 +1,5 @@
 module MessageDecorator
   def published_time
-    created_at.to_s(:default)
+    persisted? ? created_at.to_s(:default) : nil
   end
 end

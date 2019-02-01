@@ -1,8 +1,9 @@
 $(function(){
   let messageList = $('.chat-main__body--messages-list');
+  let messageForm = $('#new_message');
 
-  function insertMessage(message){
-    let insertImage = message.image ? `<img class="chat-main__message-body-image" src="${message.image}" alt="image">` : '';
+  function appendMessage(message){
+    let insertImage = message.image ? `<img class="chat-main__message-body-image" src="${ message.image }" alt="image">` : '';
 
     let html = `<div class='chat-main__message clearfix' data-id=${ message.id }>
                   <div class='chat-main__message-name'>${ message.name }</div>
@@ -16,11 +17,19 @@ $(function(){
     messageList.append(html);
   }
 
-  function insertNotification(flash){
-    let $html = $(`<div class="notice">${flash}</div>`);
+  function insertNotice() {
+    appendNotification($('<div class="notice">メッセージ送信成功</div>'));
+  }
+
+  function insertAlert() {
+    appendNotification($(`<div class="alert">メッセージ送信失敗</div>`));
+  }
+
+  function appendNotification($html) {
     $('.notification').append($html);
     $html.delay(3000).fadeOut('slow');
   }
+
 
   function scrollToBottom() {
     $('.chat-main__body').animate({
@@ -29,10 +38,10 @@ $(function(){
   }
 
   $('#message_image').on('change', function(){
-    $('#new_message').submit();
+    messageForm.submit();
   });
 
-  $('#new_message').on('submit', function(e){
+  messageForm.on('submit', function(e){
     e.preventDefault();
 
     let messageData = new FormData(this);
@@ -47,14 +56,15 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      insertMessage(data);
-      insertNotification(data.notice);
+      appendMessage(data);
+      insertNotice();
       scrollToBottom();
       this.reset();
     })
     .fail(function(){
-      alert('メッセージ送信失敗');
+      insertAlert()
     });
+
     return false;
   });
 });

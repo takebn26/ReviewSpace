@@ -3,7 +3,7 @@ $(function() {
   var preInput;
 
   function appendUser(user){
-    var html = `<li class='chat-group-user clearfix'>
+    let html = `<li class='chat-group-user clearfix'>
                   <div class='chat-group-user__name'>${user.name}</div>
                   <div class='chat-group-user__btn chat-group-user__btn--add' data-user-name='${user.name}' data-user-id='${user.id}'>追加</div>
                 </li>`;
@@ -12,7 +12,7 @@ $(function() {
   }
 
   function appendMember(userId, userName){
-    var html = `<div class='chat-group-user clearfix'>
+    let html = `<div class='chat-group-user clearfix'>
                   <input type='hidden' value='${userId}' name='group[user_ids][]'>
                   <p class='chat-group-user__name'>
                     ${userName}</p>
