@@ -13,14 +13,16 @@ CarrierWave.configure do |config|
 
   config.fog_public = true
 
-    case Rails.env
-    when 'development'
-        config.fog_directory  = 'reviewchatspace'
-        config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/reviewchatspace'
-    when 'production'
-        config.fog_directory  = 'reviewchatspace'
-        config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/reviewchatspace'
-    when 'test'
-        config.storage = :file
-    end
+  case Rails.env
+  when 'development'
+    config.fog_directory  = 'reviewchatspace'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/reviewchatspace'
+  when 'production'
+    config.fog_directory  = 'reviewchatspace'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/reviewchatspace'
+  when 'test'
+    config.storage = :file
+  else
+    puts 'none'
+  end
 end
